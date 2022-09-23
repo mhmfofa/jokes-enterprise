@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { JokeService } from './joke.service';
-import { firstValueFrom } from 'rxjs';
 
 describe('JokeService', () => {
   let service: JokeService;
