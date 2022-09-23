@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { JokeService } from './joke.service';
+import { firstValueFrom } from 'rxjs';
 
 describe('JokeService', () => {
   let service: JokeService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule]
+    });
     service = TestBed.inject(JokeService);
   });
 
@@ -14,10 +17,9 @@ describe('JokeService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch jokes', async () => {
-
-    const data = await service.fetchRandomData(10).toPromise()
-    expect(data.jokes.length).toEqual(10);
+  it('should fetch jokes', () => {
+    service.fetchRandomData(10).subscribe((res)=> {
+      expect(res.jokes.length).toEqual(10);
+    });
   });
-
 });
