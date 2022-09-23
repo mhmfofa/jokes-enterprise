@@ -1,0 +1,14 @@
+<ul class="list-group">
+  <li class="list-group-item d-flex align-items-center"
+    *ngFor="let joke of favorites; let i = index">
+    <span class="h5 mr-3 mb-0">{{i + 1}}</span>
+    <span class="d-flex flex-column flex-grow-1 align-items-start">
+      <span class="badge badge-pill badge-info pb-1 pt-0">{{ joke.category.toLowerCase() }}</span>
+      {{ joke.text }}
+    </span>
+    <button (click)="removeFromFavorite(joke)" class="btn btn-sm text-danger">
+      <i class="fa fa-heart"></i>
+    </button>
+  </li>
+  <li class="list-group-item bg-light" *ngIf="!favorites.length"> List is empty</li>
+</ul>
