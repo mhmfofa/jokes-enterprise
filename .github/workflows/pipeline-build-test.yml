@@ -51,7 +51,7 @@ jobs:
         run: ls -R ./dist
         
       - name: FTP Deploy
-        uses: mhmfofa@1.0.0
+        uses: heads/master
         with:
           ftp-server: "${{ secrets.CD_FTP_SERVER }}"
           ftp-username: "${{ secrets.CD_FTP_USERNAME }}"
