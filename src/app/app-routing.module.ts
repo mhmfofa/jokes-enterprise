@@ -11,7 +11,8 @@ const routes: Routes = [
   {
     path: 'favorites',
     component: FavoritesComponent
-  }
+  },     
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
