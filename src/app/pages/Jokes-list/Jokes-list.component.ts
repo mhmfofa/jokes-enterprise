@@ -18,15 +18,15 @@ export class JokesListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fetchData();
 
-    interval(5 * 1000)
+    interval(10 * 1000)
       .pipe(
         takeUntil(this.unsubscribe$),
         mergeMap(() => this.jokeService.fetchRandomData(1)))
       .subscribe((response: Joke[]) => {
         response[0].isFavorite = this.jokeService.isFavorite(response[0]);
-        this.jokes.push(response[0]);
+        this.jokes.unshift(response[0]);
         if (this.jokes.length > 10) {
-          this.jokes.shift();
+          this.jokes.pop();
         }
       });
   }
