@@ -33,9 +33,9 @@ export class JokeService {
 
   addToFavorite(item: any) {
     const favorites: Joke[] = this.getFavorites();
-    favorites.push(item);
+    favorites.unshift(item);
     if (favorites.length > 10) {
-      favorites.shift();
+      favorites.pop();
     }
     localStorage.setItem(this.KEY, JSON.stringify(favorites))
     return favorites;
