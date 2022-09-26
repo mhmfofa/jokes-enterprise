@@ -3,7 +3,7 @@
     *ngFor="let joke of jokes; let i = index">
     <span class="h5 mr-3 mb-0">{{i + 1}}</span>
     <span class="d-flex flex-column flex-grow-1 align-items-start">
-      <span class="badge badge-pill badge-info pb-1 pt-0">{{ joke.category.toLowerCase() }}</span>
+      <span class="badge badge-pill badge-info">{{ joke.category.toLowerCase() }}</span>
       {{ joke.text }}
     </span>
     <button (click)="toggleFavorite(joke)" class="btn btn-sm text-danger">
